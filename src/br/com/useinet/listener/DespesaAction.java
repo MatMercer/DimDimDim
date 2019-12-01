@@ -69,7 +69,7 @@ public class DespesaAction implements ActionListener {
 			despesaDb = new DespesaDb();
 
 			if (despesaDb.criaObjeto(nomeDespesa, tipo, valor.toString()) == null) {
-				JOptionPane.showMessageDialog(despesaUI, "Despesa j· cadastrada.", "Registro existente",
+				JOptionPane.showMessageDialog(despesaUI, "Despesa j√° cadastrada.", "Registro existente",
 						JOptionPane.WARNING_MESSAGE);
 				despesaDb.descartaObjeto();
 				return;
@@ -96,7 +96,7 @@ public class DespesaAction implements ActionListener {
 		try {
 			tipoVo = (Tipo) new TipoDb().listaObjetos("nome", tipoNome).get(0);
 		} catch (IndexOutOfBoundsException e) {
-			JOptionPane.showMessageDialog(despesaUI, "Tipo n„o encontrado.", "Registro inexistente",
+			JOptionPane.showMessageDialog(despesaUI, "Tipo n√£o encontrado.", "Registro inexistente",
 					JOptionPane.WARNING_MESSAGE);
 			despesaUI.getJComboBox().setModel(new TipoJComboBox().getModel());
 			return;
@@ -106,7 +106,7 @@ public class DespesaAction implements ActionListener {
 		Despesa despesa;
 
 		if ((despesa = (Despesa) despesaDb.listaObjeto(despesaNome, tipoVo)) == null) {
-			JOptionPane.showMessageDialog(despesaUI, "Despesa n„o encontrada.", "Registro inexistente",
+			JOptionPane.showMessageDialog(despesaUI, "Despesa n√£o encontrada.", "Registro inexistente",
 					JOptionPane.WARNING_MESSAGE);
 			table = new DespesaJTable(despesaUI.getJTextField(), despesaUI.getJComboBox(), despesaUI.getJTextField1());
 			despesaUI.getJScrollPane().setViewportView(table);
@@ -116,7 +116,7 @@ public class DespesaAction implements ActionListener {
 
 		if (actionEvent.getActionCommand().equals("Remover") && despesaDb.removeObjeto(despesa.getId())) {
 			if (!despesaDb.salvaObjeto()) {
-				JOptionPane.showMessageDialog(despesaUI, "N„o foi possÌvel remover a despesa.", "Remover registro",
+				JOptionPane.showMessageDialog(despesaUI, "N√£o foi poss√≠vel remover a despesa.", "Remover registro",
 						JOptionPane.WARNING_MESSAGE);
 				despesaDb.descartaObjeto();
 				return;
@@ -127,7 +127,7 @@ public class DespesaAction implements ActionListener {
 
 		if (actionEvent.getActionCommand().equals("Alterar") && isCamposValidos()) {
 			if (!despesaDb.atualizaObjeto(despesa.getId(), nomeDespesa, tipo, valor.toString())) {
-				JOptionPane.showMessageDialog(despesaUI, "N„o foi possÌvel atualizar a despesa.", "Atualizar registro",
+				JOptionPane.showMessageDialog(despesaUI, "N√£o foi poss√≠vel atualizar a despesa.", "Atualizar registro",
 						JOptionPane.WARNING_MESSAGE);
 				despesaDb.descartaObjeto();
 				return;
@@ -144,20 +144,20 @@ public class DespesaAction implements ActionListener {
 		valorDespesa = despesaUI.getJTextField1().getText().trim();
 
 		if (nomeDespesa.equals("")) {
-			JOptionPane.showMessageDialog(despesaUI, "Preencha o campo despesa.", "Campo obrigatÛrio",
+			JOptionPane.showMessageDialog(despesaUI, "Preencha o campo despesa.", "Campo obrigat√≥rio",
 					JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
 
 		if (nomeTipo.equals("")) {
-			JOptionPane.showMessageDialog(despesaUI, "Selecione um tipo.", "Campo obrigatÛrio",
+			JOptionPane.showMessageDialog(despesaUI, "Selecione um tipo.", "Campo obrigat√≥rio",
 					JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		} else {
 			try {
 				tipo = (Tipo) new TipoDb().listaObjetos("nome", nomeTipo).get(0);
 			} catch (IndexOutOfBoundsException e) {
-				JOptionPane.showMessageDialog(despesaUI, "Tipo n„o encontrado.", "Registro inexistente",
+				JOptionPane.showMessageDialog(despesaUI, "Tipo n√£o encontrado.", "Registro inexistente",
 						JOptionPane.WARNING_MESSAGE);
 				despesaUI.getJComboBox().setModel(new TipoJComboBox().getModel());
 				return false;
@@ -165,14 +165,14 @@ public class DespesaAction implements ActionListener {
 		}
 
 		if (valorDespesa.equals("")) {
-			JOptionPane.showMessageDialog(despesaUI, "Preencha o campo valor.", "Campo obrigatÛrio",
+			JOptionPane.showMessageDialog(despesaUI, "Preencha o campo valor.", "Campo obrigat√≥rio",
 					JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		} else {
 			try {
 				valor = new Decimal(valorDespesa).getDecimal();
 			} catch (NumberFormatException e) {
-				JOptionPane.showMessageDialog(despesaUI, "O campo valor deve conter apenas n˙meros.", "Campo inv·lido",
+				JOptionPane.showMessageDialog(despesaUI, "O campo valor deve conter apenas n√∫meros.", "Campo inv√°lido",
 						JOptionPane.WARNING_MESSAGE);
 				return false;
 			}

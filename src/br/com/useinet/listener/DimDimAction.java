@@ -52,7 +52,7 @@ public class DimDimAction implements ActionListener {
 			System.exit(0);
 		} else if (e.getActionCommand().equals("Sobre o DimDimDim")) {
 			JOptionPane.showMessageDialog(desktopPane, "DimDimDim 1.0\n" + "Sistema para Controle Financeiro Pessoal\n"
-					+ "Todas as vossas coisas sejam feitas com amor.\n" + "1 Coríntios 16:14", "Sobre o DimDimDim",
+					+ "Todas as vossas coisas sejam feitas com amor.\n" + "1 CorÃ­ntios 16:14", "Sobre o DimDimDim",
 					JOptionPane.INFORMATION_MESSAGE, new ImageIcon(Toolkit.getDefaultToolkit().getImage(
 							getClass().getResource("/br/com/useinet/ui/dim.png"))));
 		}

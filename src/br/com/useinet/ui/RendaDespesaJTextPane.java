@@ -29,7 +29,7 @@ public class RendaDespesaJTextPane extends JTextPane {
 		try {
 			renda = (Renda) new RendaDb().listaObjetos().get(0);
 		} catch (IndexOutOfBoundsException e) {
-			JOptionPane.showMessageDialog(relatorioUI, "Renda n„o encontrada.", "Registro inexistente",
+			JOptionPane.showMessageDialog(relatorioUI, "Renda n√£o encontrada.", "Registro inexistente",
 					JOptionPane.WARNING_MESSAGE);
 			return;
 		}
@@ -37,7 +37,7 @@ public class RendaDespesaJTextPane extends JTextPane {
 		try {
 			despesa = (Despesa) new DespesaDb().listaObjetos().get(0);
 		} catch (IndexOutOfBoundsException e) {
-			JOptionPane.showMessageDialog(relatorioUI, "Despesa n„o encontrada.", "Registro inexistente",
+			JOptionPane.showMessageDialog(relatorioUI, "Despesa n√£o encontrada.", "Registro inexistente",
 					JOptionPane.WARNING_MESSAGE);
 			return;
 		}
@@ -59,7 +59,7 @@ public class RendaDespesaJTextPane extends JTextPane {
 				doc.insertString(doc.getLength(), initString[i], doc.getStyle(initStyles[i]));
 			}
 		} catch (BadLocationException ble) {
-			LogUtil.getLogger().warn("N„o foi possÌvel inserir o texto no painel.");
+			LogUtil.getLogger().warn("N√£o foi poss√≠vel inserir o texto no painel.");
 		}
 	}
 

@@ -25,7 +25,7 @@ public class DimDimMain {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			LogUtil.getLogger().warn("N„o foi possÌvel interromper a thread\n" + e);
+			LogUtil.getLogger().warn("N√£o foi poss√≠vel interromper a thread\n" + e);
 		}
 
 		sp.hideSplash();
@@ -38,7 +38,7 @@ public class DimDimMain {
 		try {
 			UIManager.setLookAndFeel(lookAndFeel);
 		} catch (Exception e) {
-			LogUtil.getLogger().warn("N„o foi possÌvel setar o LookAndFeel\n" + e);
+			LogUtil.getLogger().warn("N√£o foi poss√≠vel setar o LookAndFeel\n" + e);
 		}
 
 		sp = new TelaAberturaJWindow("/br/com/useinet/ui/dimdimdim.png");
@@ -49,10 +49,10 @@ public class DimDimMain {
 		try {
 			dbClass = new DbClass();
 		} catch (HibernateException e) {
-			LogUtil.getLogger().error("N„o foi possÌvel conectar ao banco de dados\n" + e);
+			LogUtil.getLogger().error("N√£o foi poss√≠vel conectar ao banco de dados\n" + e);
 			JFrame frame = new JFrame();
 			sp.hideSplash();
-			JOptionPane.showMessageDialog(frame, "N„o foi possÌvel conectar ao banco de dados.", "Erro na conex„o",
+			JOptionPane.showMessageDialog(frame, "N√£o foi poss√≠vel conectar ao banco de dados.", "Erro na conex√£o",
 					JOptionPane.ERROR_MESSAGE);
 			System.exit(1);
 		}

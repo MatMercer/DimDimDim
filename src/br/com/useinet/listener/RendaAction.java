@@ -59,7 +59,7 @@ public class RendaAction implements ActionListener {
 			rendaDb = new RendaDb();
 
 			if (rendaDb.criaObjeto(rendaNome, valor.toString()) == null) {
-				JOptionPane.showMessageDialog(rendaUI, "Renda j· cadastrada.", "Registro existente",
+				JOptionPane.showMessageDialog(rendaUI, "Renda j√° cadastrada.", "Registro existente",
 						JOptionPane.WARNING_MESSAGE);
 				rendaDb.descartaObjeto();
 				return;
@@ -85,7 +85,7 @@ public class RendaAction implements ActionListener {
 		try {
 			renda = (Renda) rendaDb.listaObjetos("nome", nome).get(0);
 		} catch (IndexOutOfBoundsException e) {
-			JOptionPane.showMessageDialog(rendaUI, "Renda n„o encontrada.", "Registro inexistente",
+			JOptionPane.showMessageDialog(rendaUI, "Renda n√£o encontrada.", "Registro inexistente",
 					JOptionPane.WARNING_MESSAGE);
 			table = new RendaJTable(rendaUI.getJTextField(), rendaUI.getJTextField1());
 			rendaUI.getJScrollPane().setViewportView(table);
@@ -95,7 +95,7 @@ public class RendaAction implements ActionListener {
 
 		if (actionEvent.getActionCommand().equals("Remover") && rendaDb.removeObjeto(renda.getId())) {
 			if (!rendaDb.salvaObjeto()) {
-				JOptionPane.showMessageDialog(rendaUI, "N„o foi possÌvel remover a renda.", "Remover registro",
+				JOptionPane.showMessageDialog(rendaUI, "N√£o foi poss√≠vel remover a renda.", "Remover registro",
 						JOptionPane.WARNING_MESSAGE);
 				rendaDb.descartaObjeto();
 				return;
@@ -106,7 +106,7 @@ public class RendaAction implements ActionListener {
 
 		if (actionEvent.getActionCommand().equals("Alterar") && isCamposValidos()) {
 			if (!rendaDb.atualizaObjeto(renda.getId(), rendaNome, valor.toString())) {
-				JOptionPane.showMessageDialog(rendaUI, "N„o foi possÌvel atualizar a renda.", "Atualizar registro",
+				JOptionPane.showMessageDialog(rendaUI, "N√£o foi poss√≠vel atualizar a renda.", "Atualizar registro",
 						JOptionPane.WARNING_MESSAGE);
 				rendaDb.descartaObjeto();
 				return;
@@ -122,20 +122,20 @@ public class RendaAction implements ActionListener {
 		valorRenda = rendaUI.getJTextField1().getText().trim();
 
 		if (rendaNome.equals("")) {
-			JOptionPane.showMessageDialog(rendaUI, "Preencha o campo renda.", "Campo obrigatÛrio",
+			JOptionPane.showMessageDialog(rendaUI, "Preencha o campo renda.", "Campo obrigat√≥rio",
 					JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
 
 		if (valorRenda.equals("")) {
-			JOptionPane.showMessageDialog(rendaUI, "Preencha o campo valor.", "Campo obrigatÛrio",
+			JOptionPane.showMessageDialog(rendaUI, "Preencha o campo valor.", "Campo obrigat√≥rio",
 					JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		} else {
 			try {
 				valor = new Decimal(valorRenda).getDecimal();
 			} catch (NumberFormatException e) {
-				JOptionPane.showMessageDialog(rendaUI, "O campo valor deve conter apenas n˙meros.", "Campo inv·lido",
+				JOptionPane.showMessageDialog(rendaUI, "O campo valor deve conter apenas n√∫meros.", "Campo inv√°lido",
 						JOptionPane.WARNING_MESSAGE);
 				return false;
 			}

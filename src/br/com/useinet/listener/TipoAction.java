@@ -39,7 +39,7 @@ public class TipoAction implements ActionListener {
 			tipoDb = new TipoDb();
 
 			if (tipoDb.criaObjeto(tipo) == null) {
-				JOptionPane.showMessageDialog(tipoUI, "Tipo j· cadastrado.", "Registro existente",
+				JOptionPane.showMessageDialog(tipoUI, "Tipo j√° cadastrado.", "Registro existente",
 						JOptionPane.WARNING_MESSAGE);
 				tipoDb.descartaObjeto();
 				return;
@@ -65,7 +65,7 @@ public class TipoAction implements ActionListener {
 		try {
 			tipo = (Tipo) tipoDb.listaObjetos("nome", nome).get(0);
 		} catch (IndexOutOfBoundsException e) {
-			JOptionPane.showMessageDialog(tipoUI, "Tipo n„o encontrado.", "Registro inexistente",
+			JOptionPane.showMessageDialog(tipoUI, "Tipo n√£o encontrado.", "Registro inexistente",
 					JOptionPane.WARNING_MESSAGE);
 			table = new TipoJTable(tipoUI.getJTextField());
 			tipoUI.getJScrollPane().setViewportView(table);
@@ -75,7 +75,7 @@ public class TipoAction implements ActionListener {
 
 		if (actionEvent.getActionCommand().equals("Remover") && tipoDb.removeObjeto(tipo.getId())) {
 			if (!tipoDb.salvaObjeto()) {
-				JOptionPane.showMessageDialog(tipoUI, "N„o foi possÌvel remover o tipo.", "Remover registro",
+				JOptionPane.showMessageDialog(tipoUI, "N√£o foi poss√≠vel remover o tipo.", "Remover registro",
 						JOptionPane.WARNING_MESSAGE);
 				tipoDb.descartaObjeto();
 				return;
@@ -86,7 +86,7 @@ public class TipoAction implements ActionListener {
 
 		if (actionEvent.getActionCommand().equals("Alterar") && isCamposValidos()) {
 			if (!tipoDb.atualizaObjeto(tipo.getId(), tipoUI.getJTextField().getText())) {
-				JOptionPane.showMessageDialog(tipoUI, "N„o foi possÌvel atualizar o tipo.", "Atualizar registro",
+				JOptionPane.showMessageDialog(tipoUI, "N√£o foi poss√≠vel atualizar o tipo.", "Atualizar registro",
 						JOptionPane.WARNING_MESSAGE);
 				tipoDb.descartaObjeto();
 				return;
@@ -101,7 +101,7 @@ public class TipoAction implements ActionListener {
 		tipo = tipoUI.getJTextField().getText().trim();
 
 		if (tipo.equals("")) {
-			JOptionPane.showMessageDialog(tipoUI, "Preencha o campo tipo.", "Campo obrigatÛrio",
+			JOptionPane.showMessageDialog(tipoUI, "Preencha o campo tipo.", "Campo obrigat√≥rio",
 					JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}

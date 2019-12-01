@@ -133,7 +133,7 @@ public class DimDimUI extends JFrame {
 	private JMenu getJMenu1() {
 		if (jMenu1 == null) {
 			jMenu1 = new JMenu();
-			jMenu1.setText("Relatórios");
+			jMenu1.setText("RelatÃ³rios");
 			jMenu1.setMnemonic(KeyEvent.VK_R);
 			jMenu1.setFont(new Font("Dialog", Font.PLAIN, 12));
 			jMenu1.add(getJMenuItem4());
